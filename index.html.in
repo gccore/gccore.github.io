@@ -1,35 +1,81 @@
 define(ICON_SIZE, 32)
 define(CONTENT_IMAGE, `<img src="icons/contents.png" style="width:'$1`px;height:'$1`px;">')
+define(SUB_CONTENT_IMAGE, `<img src="icons/sub-contents.png" style="width:'$1`px;height:'$1`px;">')
 define(BACK_TO_CONTENTS, <sub>(<a href="`#'contents">back to CONTENT_IMAGE(20)</a>)</sub>)
+define(BACK_TO_SUB_CONTENTS, <sub>(<a href="`#'$1">back to SUB_CONTENT_IMAGE(20)</a>)</sub>)
 
 changequote(`[',`]')
 define(NEW_CONTENT, [<h2><a id="$2">$1</a>BACK_TO_CONTENTS</h2>])
+define(NEW_SUB_CONTENT, [<h3><a id="$2">$1</a>BACK_TO_SUB_CONTENTS($3)</h3>])
+define(DEFINE_CONTENT, [CONTENT_IMAGE(ICON_SIZE)<a id="$2"/> $1</a>])
+define(DEFINE_SUB_CONTENT, [SUB_CONTENT_IMAGE(ICON_SIZE)<a id="$2"/> $1</a>])
 changequote
 
 define(LINK, <a href="$2">$1</a>)
+define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
 
-<h1> Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      @font-face {
+	  font-family: PerfectDOS;
+	  src: url("font/PerfectDOSVGA437.ttf");
+      }
 
-<p><a href="https://stackoverflow.com/users/9248466/ghasem-ramezani"><img src="https://stackoverfl
-ow.com/users/flair/9248466.png" width="208" height="58" alt="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A fo
-r professional and enthusiast programmers" title="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professio
-nal and enthusiast programmers"></a></p>
+      body {
+	  font-family: PerfectDOS !important;
+	  font-size: 18px;
+      }
 
-A C++ jerk who is living with his beautiful ThinkPad
+      body {
+	  cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAAAAACoCAAAFgAAACgAAAAgAAAAQAAAAAEACAAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAL//AP8A/wACkpcAuu71AOv6/ABYiZAABPT7AE0AmQD//wAAgAD/AFB7ggBwj5MAmZkAAP+AAACZTQAAZYGFAJWVlQAAmU0AjZaXAJPk8AAA/4AAAHOZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICAgICAgICAgICAgICAAICAgICAgICAgICAgICAgICAgICAgICAgICEREAEREUFAAAAAAAEREREQICAgICAgICAgICAgICABEAAA8AAAQUDg4JCQ4AABEAERECAgICAgICAgICAgIADQkODg4OAAAODg4ODg4JFBQSDQICAgICAgICAgISEhUJCQkJDg4JDg4ODgkOCQkAFRUVAAICAgICAgICAhIVCRUJFQkJDg4ODg4OCQkJCRUJFQkSAgICAgICAgIACRUJFRUJCQkJCQkJCQkVCQkVFQkVFRUAAgICAgICAgIDAAAAFRUVCQkVCQkJCQkJFQkJFRUHBwACAgICAgIABgYUFBQGBgAVCQkVFQkJFRUVFRUVFQcHFgACAgICAAYUFBQUFBQUBhUVFQkVFRUVFRUVFRUHFQcDAAICAgAUCxAQAAAQBBQUBgAVFRUHFRUVFRUVBwcHBwACAgICAAQAAAAUBAAUBAQGABUVBxUVFRUVBwcHBwcBFgACAgAEBBAEBAQABAQEBAQGBxUVBwcHFQcHBwEHAQEAAgICAAQEBAQEBQUEBAQABAYHBwcHBwcHBwcHBwcBAQgAAgICAAQEBQUFBAUFBAAEDAcHBwcHBwcHBwcBAQEBFgACAgIADAUFBQQFBQUFBQwABwcHBwcHAQEBAQEBAQEAAgICAgIABQUFBQUFBQUFEwABBwcBAQEHAQEHAQEKCgACAgICAgAFBQUFBQUFBQUGAAEBAQEBAQEBAQcBAQoKAAICAgICAgUFBQUFBQUFBQQGAQEBBwEBAQEBAQEKAQgCAgICAgICAAAABQUFAAAABAQAAQEBAQEBAQEBCgoKAAICAgICAgIAFBQUCgoBCgoEBAEKAQEBAQoKAQEKCgoAAgICAgICAgAEBBQKCgoBAQAAAQEBAQoKAQoKCgoBCgACAgICAgICAgAFABYICgoKCgoKAQoKCgoKCgoKCAAAAgICAgICAgICAgACAAAKCgoKCgoKAQoKCgoKChYAAgICAgICAgICAgICAgICAgAACAAACAoBCggKCAAAAgICAgICAgICAgICAgICAgICAgIAAgIACAgIAAgAAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAv/+////wAA//wAAD/8AAA/8AAAH/AAAB/gAAAP8AAAD8AAAAeAAAAHAAAADwAAAAYAAAAOAAAABwAAAAcAAAAPgAAAD4AAAA/AAAAfwAAAH8AAAB/AAAAf4AAAP/QAAP//AAP//9gP/////////////////////////////////'), auto;
+	   }
+      
+    </style>
+  </head>
+  <body style="background-color:powderblue;color:rgb( 52, 52, 5 )">
+    
 
-<ul>
-  <li>GMail: g1999ramezani@gmail.com</li>
-  <li>Telegram: LINK(@gccore, https://t.me/gccore)</li>
-  <li>Twitter: LINK(@ghasem_ccore, https://twitter.com/ghasem_ccore)</li>
-</ul> 
+    
+    <h1> Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
 
-<hr/>
+    <p><a href="https://stackoverflow.com/users/9248466/ghasem-ramezani"><img src="https://stackoverflow.com/users/flair/9248466.png" width="208" height="58" alt="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a></p>
 
-CONTENT_IMAGE(ICON_SIZE)<a id="contents"></a>
-<ul>
-  <li>LINK(Projects, `#public_projects')</li>
-</ul>
+    A C++ jerk who is living with his beautiful ThinkPad
 
-<hr/>
+    <ul>
+      <li>GMail: g1999ramezani@gmail.com</li>
+      <li>Telegram: LINK(@gccore, https://t.me/gccore)</li>
+      <li>Twitter: LINK(@ghasem_ccore, https://twitter.com/ghasem_ccore)</li>
+    </ul> 
 
-NEW_CONTENT(Public Project, public_project)
+    <hr/>
+
+    DEFINE_CONTENT(Contents:, contents)
+    <ul>
+      <li>LINK(Projects, `#public_projects')</li>
+    </ul>
+
+    <hr/>
+
+    NEW_CONTENT(Public Project, public_project)
+    DEFINE_SUB_CONTENT(Contents:, public_project_contents)
+    <ul>
+      <li>LINK(CMake Template, `#cmake_template')</li>
+    </ul>
+
+    <hr/>
+
+    NEW_SUB_CONTENT(CMake Template, cmake_template, public_project)
+    BULLET_LINK(Github project link, https://github.com/gccore/CMakeTemplate)
+
+    Configuring CMake properly can be challenging. Here are some of my frequently used configurations that may help.
+    <br/>
+    <b>LINK(Executables, https://github.com/gccore/CMakeTemplate/blob/master/Configs/Executable/CMakeLists.txt)</b>: This configuration helps you to set up an executable target white following properties:
+    <ol>
+      <li>RPATH is: 
+    </ol>
+
+  </body>
+</html>
