@@ -23,9 +23,9 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
 	  src: url("font/PerfectDOSVGA437.ttf");
       }
 
-      body {
+      body, code, pre {
 	  font-family: PerfectDOS !important;
-	  font-size: 18px;
+	  font-size: 25px;
       }
 
       body {
@@ -34,13 +34,8 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
       
     </style>
   </head>
-  <body style="background-color:powderblue;color:rgb( 52, 52, 5 )">
-    
-
-    
+  <body style="background-color:black;color:white;">
     <h1> Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
-
-    <p><a href="https://stackoverflow.com/users/9248466/ghasem-ramezani"><img src="https://stackoverflow.com/users/flair/9248466.png" width="208" height="58" alt="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a></p>
 
     A C++ jerk who is living with his beautiful ThinkPad
 
@@ -48,6 +43,7 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
       <li>GMail: g1999ramezani@gmail.com</li>
       <li>Telegram: LINK(@gccore, https://t.me/gccore)</li>
       <li>Twitter: LINK(@ghasem_ccore, https://twitter.com/ghasem_ccore)</li>
+      <li>Stackoverflow: LINK(@ghasem-ramezani, https://stackoverflow.com/users/9248466/ghasem-ramezani) </li>
     </ul> 
 
     <hr/>
@@ -63,6 +59,7 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
     DEFINE_SUB_CONTENT(Contents:, public_project_contents)
     <ul>
       <li>LINK(CMake Template, `#cmake_template')</li>
+      <li>LINK(CMake Common, `#cmake_common')</li>
     </ul>
 
     <hr/>
@@ -70,12 +67,34 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
     NEW_SUB_CONTENT(CMake Template, cmake_template, public_project)
     BULLET_LINK(Github project link, https://github.com/gccore/CMakeTemplate)
 
-    Configuring CMake properly can be challenging. Here are some of my frequently used configurations that may help.
-    <br/>
-    <b>LINK(Executables, https://github.com/gccore/CMakeTemplate/blob/master/Configs/Executable/CMakeLists.txt)</b>: This configuration helps you to set up an executable target white following properties:
+    Configuring CMake properly can be challenging. Here are some of my frequently used configurations that may help:
     <ol>
-      <li>RPATH is: 
+      <li><b>LINK(Executables, https://github.com/gccore/CMakeTemplate/blob/master/Configs/Executable/CMakeLists.txt)</b>: This configuration helps you to set up an executable target with RPATH defined as $ORIGIN/lib -> $ORIGIN/../lib -> $ORIGIN, and all the required config files for find_package are exported including ConfigVersion.cmake.</li>
+      <li><b>LINK(Shared Library, https://github.com/gccore/CMakeTemplate/blob/master/Configs/SharedLibrary/CMakeLists.txt)</b>: This setup will assist you in creating a target that is fully versioned. With this you can install multi-version of the same library in your system.</li>
+      <li><b>LINK(Fetch Contents, https://github.com/gccore/CMakeTemplate/blob/master/Configs/FetchContent/CMakeLists.txt)</b>: Two code snippet for fetching Google Benchmark and Google Test.</li>
+      <li><b>LINK(QtCreator Plain C++, https://github.com/gccore/CMakeTemplate/blob/master/Configs/QtCreatorPlainCppCMake/CMakeLists.txt)</b>: Template for Qt Creator project.</li>
     </ol>
 
+    <hr/>
+    
+    NEW_SUB_CONTENT(CMake Common, cmake_common, public_project)
+    BULLET_LINK(Github project link, https://github.com/gccore/CMakeCommon)
+
+    Here are some of the utility functions that make life easier:
+    <ol>
+      <li><b>LINK(Core_Utility_FethQMakeContent, https://github.com/gccore/CMakeCommon/tree/master/FetchQMakeContents)</b>: Using this module you can clone/patch/build QMake projects at the CMake Configuration time.
+	<br/>
+	<b>Example</b>:<br/>
+	<pre><code>
+	  `include(CMakeCommon)'
+
+	  Core_Utility_FetchQMakeContents(
+            GIT_REPOSITORY https://github.com/SMR76/knight-pen.git
+            QMAKE_CONFIG_DIRECTORY src/knight-pen
+            APPLY_PATCH ${CMAKE_CURRENT_SOURCE_DIR}/Knight-pen.diff
+	  )
+	</code></pre>
+      </li>
+    </ol>
   </body>
 </html>

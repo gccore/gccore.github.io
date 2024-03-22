@@ -23,9 +23,9 @@
 	  src: url("font/PerfectDOSVGA437.ttf");
       }
 
-      body {
+      body, code, pre {
 	  font-family: PerfectDOS !important;
-	  font-size: 18px;
+	  font-size: 25px;
       }
 
       body {
@@ -34,13 +34,8 @@
       
     </style>
   </head>
-  <body style="background-color:powderblue;color:rgb( 52, 52, 5 )">
-    
-
-    
+  <body style="background-color:black;color:white;">
     <h1> Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
-
-    <p><a href="https://stackoverflow.com/users/9248466/ghasem-ramezani"><img src="https://stackoverflow.com/users/flair/9248466.png" width="208" height="58" alt="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a></p>
 
     A C++ jerk who is living with his beautiful ThinkPad
 
@@ -48,6 +43,7 @@
       <li>GMail: g1999ramezani@gmail.com</li>
       <li>Telegram: <a href="https://t.me/gccore">@gccore</a></li>
       <li>Twitter: <a href="https://twitter.com/ghasem_ccore">@ghasem_ccore</a></li>
+      <li>Stackoverflow: <a href="https://stackoverflow.com/users/9248466/ghasem-ramezani">@ghasem-ramezani</a> </li>
     </ul> 
 
     <hr/>
@@ -63,6 +59,7 @@
     <img src="icons/sub-contents.png" style="width:32px;height:32px;"><a id="public_project_contents"/> Contents:</a>
     <ul>
       <li><a href="#cmake_template">CMake Template</a></li>
+      <li><a href="#cmake_common">CMake Common</a></li>
     </ul>
 
     <hr/>
@@ -70,12 +67,34 @@
     <h3><a id="cmake_template">CMake Template</a><sub>(<a href="#public_project">back to <img src="icons/sub-contents.png" style="width:20px;height:20px;"></a>)</sub></h3>
     <ul><li><a href="https://github.com/gccore/CMakeTemplate">Github project link</a></li></ul>
 
-    Configuring CMake properly can be challenging. Here are some of my frequently used configurations that may help.
-    <br/>
-    <b><a href="https://github.com/gccore/CMakeTemplate/blob/master/Configs/Executable/CMakeLists.txt">Executables</a></b>: This configuration helps you to set up an executable target white following properties:
+    Configuring CMake properly can be challenging. Here are some of my frequently used configurations that may help:
     <ol>
-      <li>RPATH is: 
+      <li><b><a href="https://github.com/gccore/CMakeTemplate/blob/master/Configs/Executable/CMakeLists.txt">Executables</a></b>: This configuration helps you to set up an executable target with RPATH defined as $ORIGIN/lib -> $ORIGIN/../lib -> $ORIGIN, and all the required config files for find_package are exported including ConfigVersion.cmake.</li>
+      <li><b><a href="https://github.com/gccore/CMakeTemplate/blob/master/Configs/SharedLibrary/CMakeLists.txt">Shared Library</a></b>: This setup will assist you in creating a target that is fully versioned. With this you can install multi-version of the same library in your system.</li>
+      <li><b><a href="https://github.com/gccore/CMakeTemplate/blob/master/Configs/FetchContent/CMakeLists.txt">Fetch Contents</a></b>: Two code snippet for fetching Google Benchmark and Google Test.</li>
+      <li><b><a href="https://github.com/gccore/CMakeTemplate/blob/master/Configs/QtCreatorPlainCppCMake/CMakeLists.txt">QtCreator Plain C++</a></b>: Template for Qt Creator project.</li>
     </ol>
 
+    <hr/>
+    
+    <h3><a id="cmake_common">CMake Common</a><sub>(<a href="#public_project">back to <img src="icons/sub-contents.png" style="width:20px;height:20px;"></a>)</sub></h3>
+    <ul><li><a href="https://github.com/gccore/CMakeCommon">Github project link</a></li></ul>
+
+    Here are some of the utility functions that make life easier:
+    <ol>
+      <li><b><a href="https://github.com/gccore/CMakeCommon/tree/master/FetchQMakeContents">Core_Utility_FethQMakeContent</a></b>: Using this module you can clone/patch/build QMake projects at the CMake Configuration time.
+	<br/>
+	<b>Example</b>:<br/>
+	<pre><code>
+	  include(CMakeCommon)
+
+	  Core_Utility_FetchQMakeContents(
+            GIT_REPOSITORY https://github.com/SMR76/knight-pen.git
+            QMAKE_CONFIG_DIRECTORY src/knight-pen
+            APPLY_PATCH ${CMAKE_CURRENT_SOURCE_DIR}/Knight-pen.diff
+	  )
+	</code></pre>
+      </li>
+    </ol>
   </body>
 </html>
