@@ -63,7 +63,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 
     <hr/>
 
-    NEW_CONTENT(Public Project, public_project)
+    NEW_CONTENT(Public Projects, public_projects)
     DEFINE_SUB_CONTENT(Contents:, public_project_contents)
     <ul>
       <li>LINK(CMake Template, `#cmake_template')</li>
@@ -74,7 +74,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 
     <hr/>
 
-    NEW_SUB_CONTENT(CMake Template, cmake_template, public_project)
+    NEW_SUB_CONTENT(CMake Template, cmake_template, public_projects)
     BULLET_LINK(Github project link, https://github.com/gccore/CMakeTemplate)
 
     Configuring CMake properly can be challenging. Here are some of my frequently used configurations that may help:
@@ -87,7 +87,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 
     <hr/>
     
-    NEW_SUB_CONTENT(CMake Common, cmake_common, public_project)
+    NEW_SUB_CONTENT(CMake Common, cmake_common, public_projects)
     BULLET_LINK(Github project link, https://github.com/gccore/CMakeCommon)
 
     Here are some of the utility functions that make life easier:
@@ -119,13 +119,13 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 
     <hr/>
     
-    NEW_SUB_CONTENT(Examples, project_examples, public_project)
+    NEW_SUB_CONTENT(Examples, project_examples, public_projects)
     BULLET_LINK(Github project link, https://github.com/gccore/Examples)
     Here are some simple examples of C++ programming language.
 
     <hr/>
 
-    NEW_SUB_CONTENT(The Client UI Showcase, the_client_ui_showcase, public_project)
+    NEW_SUB_CONTENT(The Client UI Showcase, the_client_ui_showcase, public_projects)
     BULLET_LINK(Github project link, https://github.com/gccore/the_client_ui_showcase/tree/master)
     A simple template for my stupid QWidget projects.
 
