@@ -61,6 +61,8 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
     <ul>
       <li>LINK(CMake Template, `#cmake_template')</li>
       <li>LINK(CMake Common, `#cmake_common')</li>
+      <li>LINK(Examples, `#project_examples')</li>
+      <li>LINK(The Client UI Showcase, `#the_client_ui_showcase')</li>
     </ul>
 
     <hr/>
@@ -107,5 +109,20 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
       <li><b>LINK_ID(Core_Details_Git_Apply, https://github.com/gccore/CMakeCommon/tree/master/Git/Details)</b>: Applying a patch file refered by patch_file in output directory using binary file.</li>
       <li><b>LINK_ID(Core_Utility_GetRepoName, https://github.com/gccore/CMakeCommon/tree/master/Utility)<b/>: Take a url ended with .git and returns the repository name in repo_name using a regex.</li>
     </ol>
+
+    <hr/>
+    
+    NEW_SUB_CONTENT(Examples, project_examples, public_project)
+    BULLET_LINK(Github project link, https://github.com/gccore/Examples)
+    Here are some simple examples of C++ programming language.
+
+    <hr/>
+
+    NEW_SUB_CONTENT(The Client UI Showcase, the_client_ui_showcase, public_project)
+    BULLET_LINK(Github project link, https://github.com/gccore/the_client_ui_showcase/tree/master)
+    A simple template for my stupid QWidget projects.
+
+    <hr/>
+
   </body>
 </html>
