@@ -1,0 +1,35 @@
+define(ICON_SIZE, 32)
+define(CONTENT_IMAGE, `<img src="icons/contents.png" style="width:'$1`px;height:'$1`px;">')
+define(BACK_TO_CONTENTS, <sub>(<a href="`#'contents">back to CONTENT_IMAGE(20)</a>)</sub>)
+
+changequote(`[',`]')
+define(NEW_CONTENT, [<h2><a id="$2">$1</a>BACK_TO_CONTENTS</h2>])
+changequote
+
+define(LINK, <a href="$2">$1</a>)
+
+<h1> Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
+
+<p><a href="https://stackoverflow.com/users/9248466/ghasem-ramezani"><img src="https://stackoverfl
+ow.com/users/flair/9248466.png" width="208" height="58" alt="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A fo
+r professional and enthusiast programmers" title="profile for Ghasem Ramezani at Stack Overflow, Q&amp;A for professio
+nal and enthusiast programmers"></a></p>
+
+A C++ jerk who is living with his beautiful ThinkPad
+
+<ul>
+  <li>GMail: g1999ramezani@gmail.com</li>
+  <li>Telegram: LINK(@gccore, https://t.me/gccore)</li>
+  <li>Twitter: LINK(@ghasem_ccore, https://twitter.com/ghasem_ccore)</li>
+</ul> 
+
+<hr/>
+
+CONTENT_IMAGE(ICON_SIZE)<a id="contents"></a>
+<ul>
+  <li>LINK(Projects, `#public_projects')</li>
+</ul>
+
+<hr/>
+
+NEW_CONTENT(Public Project, public_project)
