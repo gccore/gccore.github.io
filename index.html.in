@@ -1,5 +1,6 @@
 define(ICON_SIZE, 32)
-define(CONTENT_IMAGE, `<img src="icons/contents.png" style="width:'$1`px;height:'$1`px;">')
+define(THIS_ICON, `<img src="icons/$1" style="width:'$2`px;height:'$2`px;">')
+define(CONTENT_IMAGE, THIS_ICON(contents.png, ICON_SIZE))
 define(SUB_CONTENT_IMAGE, `<img src="icons/sub-contents.png" style="width:'$1`px;height:'$1`px;">')
 define(BACK_TO_CONTENTS, <sub>(<a href="`#'contents">back to CONTENT_IMAGE(20)</a>)</sub>)
 define(BACK_TO_SUB_CONTENTS, <sub>(<a href="`#'$1">back to SUB_CONTENT_IMAGE(20)</a>)</sub>)
@@ -36,15 +37,15 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
     </style>
   </head>
   <body style="background-color:black;color:white;">
-    <h1> Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
+    <h1> THIS_ICON(me.png, 50) Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
 
     A C++ jerk who is living with his beautiful ThinkPad
 
     <ul>
-      <li>GMail: g1999ramezani@gmail.com</li>
-      <li>Telegram: LINK(@gccore, https://t.me/gccore)</li>
-      <li>Twitter: LINK(@ghasem_ccore, https://twitter.com/ghasem_ccore)</li>
-      <li>Stackoverflow: LINK(@ghasem-ramezani, https://stackoverflow.com/users/9248466/ghasem-ramezani) </li>
+      <li>THIS_ICON(mail.png, 20) GMail: g1999ramezani@gmail.com</li>
+      <li>THIS_ICON(firefox.png, 20) Telegram: LINK(@gccore, https://t.me/gccore)</li>
+      <li>THIS_ICON(x.png, 20) Twitter: LINK(@ghasem_ccore, https://twitter.com/ghasem_ccore)</li>
+      <li>THIS_ICON(stack.png, 20) Stackoverflow: LINK(@ghasem-ramezani, https://stackoverflow.com/users/9248466/ghasem-ramezani) </li>
     </ul> 
 
     <hr/>
