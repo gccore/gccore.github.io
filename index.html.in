@@ -5,14 +5,15 @@ define(BACK_TO_CONTENTS, <sub>(<a href="`#'contents">back to CONTENT_IMAGE(20)</
 define(BACK_TO_SUB_CONTENTS, <sub>(<a href="`#'$1">back to SUB_CONTENT_IMAGE(20)</a>)</sub>)
 
 changequote(`[',`]')
-define(NEW_CONTENT, [<h2><a id="$2">$1</a>BACK_TO_CONTENTS</h2>])
-define(NEW_SUB_CONTENT, [<h3><a id="$2">$1</a>BACK_TO_SUB_CONTENTS($3)</h3>])
+define(NEW_CONTENT, [<h2><a href="`#'$2"> `#'</a><a id="$2">$1</a>BACK_TO_CONTENTS</h2>])
+define(NEW_SUB_CONTENT, [<h3><a href="`#'$2"> `#'</a><a id="$2">$1</a>BACK_TO_SUB_CONTENTS($3)</h3>])
 define(DEFINE_CONTENT, [CONTENT_IMAGE(ICON_SIZE)<a id="$2"/> $1</a>])
 define(DEFINE_SUB_CONTENT, [SUB_CONTENT_IMAGE(ICON_SIZE)<a id="$2"/> $1</a>])
 changequote
 
 define(LINK, <a href="$2">$1</a>)
 define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
+define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 
 <html>
   <head>
@@ -69,10 +70,10 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
 
     Configuring CMake properly can be challenging. Here are some of my frequently used configurations that may help:
     <ol>
-      <li><b>LINK(Executables, https://github.com/gccore/CMakeTemplate/blob/master/Configs/Executable/CMakeLists.txt)</b>: This configuration helps you to set up an executable target with RPATH defined as $ORIGIN/lib -> $ORIGIN/../lib -> $ORIGIN, and all the required config files for find_package are exported including ConfigVersion.cmake.</li>
-      <li><b>LINK(Shared Library, https://github.com/gccore/CMakeTemplate/blob/master/Configs/SharedLibrary/CMakeLists.txt)</b>: This setup will assist you in creating a target that is fully versioned. With this you can install multi-version of the same library in your system.</li>
-      <li><b>LINK(Fetch Contents, https://github.com/gccore/CMakeTemplate/blob/master/Configs/FetchContent/CMakeLists.txt)</b>: Two code snippet for fetching Google Benchmark and Google Test.</li>
-      <li><b>LINK(QtCreator Plain C++, https://github.com/gccore/CMakeTemplate/blob/master/Configs/QtCreatorPlainCppCMake/CMakeLists.txt)</b>: Template for Qt Creator project.</li>
+      <li><b>LINK_ID(Executables, https://github.com/gccore/CMakeTemplate/blob/master/Configs/Executable/CMakeLists.txt)</b>: This configuration helps you to set up an executable target with RPATH defined as $ORIGIN/lib -> $ORIGIN/../lib -> $ORIGIN, and all the required config files for find_package are exported including ConfigVersion.cmake.</li>
+      <li><b>LINK_ID(SharedLibrary, https://github.com/gccore/CMakeTemplate/blob/master/Configs/SharedLibrary/CMakeLists.txt)</b>: This setup will assist you in creating a target that is fully versioned. With this you can install multi-version of the same library in your system.</li>
+      <li><b>LINK_ID(FetchContents, https://github.com/gccore/CMakeTemplate/blob/master/Configs/FetchContent/CMakeLists.txt)</b>: Two code snippet for fetching Google Benchmark and Google Test.</li>
+      <li><b>LINK_ID(QtCreatorPlainCpp, https://github.com/gccore/CMakeTemplate/blob/master/Configs/QtCreatorPlainCppCMake/CMakeLists.txt)</b>: Template for Qt Creator project.</li>
     </ol>
 
     <hr/>
@@ -82,7 +83,7 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
 
     Here are some of the utility functions that make life easier:
     <ol>
-      <li><b>LINK(Core_Utility_FethQMakeContent, https://github.com/gccore/CMakeCommon/tree/master/FetchQMakeContents)</b>: Using this module you can clone/patch/build QMake projects at the CMake Configuration time.
+      <li><b>LINK_ID(Core_Utility_FethQMakeContent, https://github.com/gccore/CMakeCommon/tree/master/FetchQMakeContents)</b>: Using this module you can clone/patch/build QMake projects at the CMake Configuration time.
 	<br/>
 	<b>Example</b>:<br/>
 	<pre><code>
@@ -95,6 +96,16 @@ define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
 	  )
 	</code></pre>
       </li>
+      <li><b>LINK_ID(Core_Details_FetchQMakeContents_ConfigureQMake, https://github.com/gccore/CMakeCommon/tree/master/FetchQMakeContents/Details)</b>: Executes qmake -project and qmake -makefile on the input.</li>
+      <li><b>LINK_ID(Core_Details_FetchQMakeContents_BuildQMake, https://github.com/gccore/CMakeCommon/tree/master/FetchQMakeContents/Details)</b>: Executes make -j on build_dir.</li>
+      <li><b>LINK_ID(Core_Details_FetchQMakeContents_InstallQMake, https://github.com/gccore/CMakeCommon/tree/master/FetchQMakeContents/Details)</b>: Executes make install on build_dir.</li>
+      <li><b>LINK_ID(Core_Utility_CloneRepository, https://github.com/gccore/CMakeCommon/tree/master/Git)</b>: This is a helper function for cloning the GIT repositories.</li>
+      <li><b>LINK_ID(Core_Details_Git_Clone, https://github.com/gccore/CMakeCommon/tree/master/Git/Details)</b>: Low level function for cloning repositories.</li>
+      <li><b>LINK_ID(Core_Details_Git_Pull, https://github.com/gccore/CMakeCommon/tree/master/Git/Details)</b>: Uses git specified by binary to perform a git pull on output.</li>
+      <li><b>LINK_ID(Core_Details_Git_Update_Submodules, https://github.com/gccore/CMakeCommon/tree/master/Git/Details)</b>: Updates all the submodules recursivly using binary path for git in output directory.</li>
+      <li><b>LINK_ID(Core_Details_Git_Reset, https://github.com/gccore/CMakeCommon/tree/master/Git/Details)</b>: Performs a git reset --<reset_level> at output with binary git binary file.</li>
+      <li><b>LINK_ID(Core_Details_Git_Apply, https://github.com/gccore/CMakeCommon/tree/master/Git/Details)</b>: Applying a patch file refered by patch_file in output directory using binary file.</li>
+      <li><b>LINK_ID(Core_Utility_GetRepoName, https://github.com/gccore/CMakeCommon/tree/master/Utility)<b/>: Take a url ended with .git and returns the repository name in repo_name using a regex.</li>
     </ol>
   </body>
 </html>
