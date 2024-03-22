@@ -37,7 +37,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
     </style>
   </head>
   <body style="background-color:black;color:white;">
-    <h1> THIS_ICON(me.png, 50) Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
+    <h1> THIS_ICON(me.png, 80) Ghasem Ramezani<sub>(My opinions aren't mine)</sub></h1>
 
     A C++ jerk who is living with his beautiful ThinkPad
 
