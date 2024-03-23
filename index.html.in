@@ -23,7 +23,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
     <style>
       @font-face {
 	  font-family: PerfectDOS;
-	  src: url("font/PerfectDOSVGA437.ttf");
+	  src: url("font/IosevkaFixedCurlySlab-Italic.woff2");
       }
 
       body, code, pre {
