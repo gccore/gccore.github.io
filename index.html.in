@@ -66,6 +66,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
     <hr/>
 
     NEW_CONTENT(Resume, public_resume)
+    <p>LINK(PDF File(GhasemRamezani.pdf), ./resume/GhasemRamezani.pdf)</p>
     <embed src="./resume/GhasemRamezani.pdf" width="800px" height="600px"/>
 
     <hr/>
