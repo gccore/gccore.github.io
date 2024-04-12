@@ -60,6 +60,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
     <ul>
       <li>LINK(Resume, `#public_resume')</li>
       <li>LINK(Projects, `#public_projects')</li>
+      <li>LINK(CMake Course, `#cmake_course')</li>
     </ul>
 
     <hr/>
@@ -136,6 +137,57 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
     A simple template for my stupid QWidget projects.
 
     <hr/>
+
+    NEW_CONTENT(CMake Course, cmake_course)
+    DEFINE_SUB_CONTENT(Contents:, cmake_course_contents)
+    <ul>
+      <li>Core Concept</li>
+      <ol>
+        <li>CMake Intro</li>
+          <ol>
+            <li>LINK(01-01-intro,./videos/cmake/core_concept/01-cmake_intro/01-01-intro.mp4)</li>
+            <li>LINK(01-02-intro_targets,./videos/cmake/core_concept/01-cmake_intro/01-02-intro_targets.mp4)</li>
+            <li>LINK(01-03-intro_target_access,./videos/cmake/core_concept/01-cmake_intro/01-03-intro_target_access.mp4)</li>
+            <li>LINK(01-04-intro_file_func,./videos/cmake/core_concept/01-cmake_intro/01-04-intro_file_func.mp4)</li>
+            <li>LINK(01-05-intro_cmakelists,./videos/cmake/core_concept/01-cmake_intro/01-05-intro_cmakelists.mp4)</li>
+            <li>LINK(01-06-intro_options,./videos/cmake/core_concept/01-cmake_intro/01-06-intro_options.mp4)</li>
+            <li>LINK(01-07-intro_properties,./videos/cmake/core_concept/01-cmake_intro/01-07-intro_properties.mp4)</li>
+            <li>LINK(01-08-intro_target_funcs,./videos/cmake/core_concept/01-cmake_intro/01-08-intro_target_funcs.mp4)</li>
+            <li>LINK(01-09-intro_genexpr,./videos/cmake/core_concept/01-cmake_intro/01-09-intro_genexpr.mp4)</li>
+            <li>LINK(01-10-intro_install,./videos/cmake/core_concept/01-cmake_intro/01-10-intro_install.mp4)</li>
+            <li>LINK(01-11-intro_uninstall,./videos/cmake/core_concept/01-cmake_intro/01-11-intro_uninstall.mp4)</li>
+            <li>LINK(01-12-intro_check_compile,./videos/cmake/core_concept/01-cmake_intro/01-12-intro_check_compile.mp4)</li>
+            <li>LINK(01-13-intro_cpack,./videos/cmake/core_concept/01-cmake_intro/01-13-intro_cpack.mp4)</li>
+            <li>LINK(01-14-intro_export_target,./videos/cmake/core_concept/01-cmake_intro/01-14-intro_export_target.mp4)</li>
+            <li>LINK(01-15-intro_export_version,./videos/cmake/core_concept/01-cmake_intro/01-15-intro_export_version.mp4)</li>
+            <li>LINK(01-16-intro_export_header,./videos/cmake/core_concept/01-cmake_intro/01-16-intro_export_header.mp4)</li>
+          </ol>
+        <li>CMake Debugging</li>
+          <ol>
+            <li>LINK(02-01-debugging_message,./videos/cmake/core_concept/02-cmake_debugging/02-01-debugging_message.mp4)</li>
+            <li>LINK(02-02-debugging_target_properties,./videos/cmake/core_concept/02-cmake_debugging/02-02-debugging_target_properties.mp4)</li>
+            <li>LINK(02-03-debugging_trace_source,./videos/cmake/core_concept/02-cmake_debugging/02-03-debugging_trace_source.mp4)</li>
+            <li>LINK(02-04-debugging_variable_watch,./videos/cmake/core_concept/02-cmake_debugging/02-04-debugging_variable_watch.mp4)</li>
+            <li>LINK(02-05-debugging_verbose,./videos/cmake/core_concept/02-cmake_debugging/02-05-debugging_verbose.mp4)</li>
+            <li>LINK(02-06-debugging_genexpr,./videos/cmake/core_concept/02-cmake_debugging/02-06-debugging_genexpr.mp4)</li>
+            <li>LINK(02-07-debugging_system_info,./videos/cmake/core_concept/02-cmake_debugging/02-07-debugging_system_info.mp4)</li>
+          </ol>
+        <li>CMake Versioning</li>
+          <ol>
+            <li>LINK(03-01-versioning_set,./videos/cmake/core_concept/03-cmake_versioning/03-01-versioning_set.mp4)</li>
+          </ol>
+        <li>CMake Language</li>
+          <ol>
+            <li>LINK(04-01-language_cmake_path,./videos/cmake/core_concept/04-cmake_language/04-01-language_cmake_path.mp4)</li>
+            <li>LINK(04-02-language_cmake_policy,./videos/cmake/core_concept/04-cmake_language/04-02-language_cmake_policy.mp4)</li>
+            <li>LINK(04-03-language_if,./videos/cmake/core_concept/04-cmake_language/04-03-language_if.mp4)</li>
+            <li>LINK(04-04-language_foreach,./videos/cmake/core_concept/04-cmake_language/04-04-language_foreach.mp4)</li>
+            <li>LINK(04-05-language_while,./videos/cmake/core_concept/04-cmake_language/04-05-language_while.mp4)</li>
+            <li>LINK(04-06-language_variable,./videos/cmake/core_concept/04-cmake_language/04-06-language_variable.mp4)</li>
+            <li>LINK(04-07-language_function,./videos/cmake/core_concept/04-cmake_language/04-07-language_function.mp4)</li>
+          </ol>
+      </ol>
+    </ul>
 
   </body>
 </html>
