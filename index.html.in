@@ -36,7 +36,8 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 	   }
 
       a:link, a:visited {
-        color: rgb(255, 255, 82);
+         color: rgb(255, 255, 82);
+         font-weight: normal;
       }
       
     </style>
