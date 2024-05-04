@@ -33,6 +33,7 @@ define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 
       * {
 	  cursor: url('./icons/nat927.png'), auto;
+	  font-weight: normal;
       }
 
       a:link, a:visited {
