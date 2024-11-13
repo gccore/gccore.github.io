@@ -1,3 +1,5 @@
+divert(`-1')
+
 define(ICON_SIZE, 32)
 define(THIS_ICON, `<img src="icons/$1" style="width:'$2`px;height:'$2`px;">')
 define(CONTENT_IMAGE, THIS_ICON(contents.png, ICON_SIZE))
@@ -16,6 +18,7 @@ define(LINK, <a href="$2">$1</a>)
 define(BULLET_LINK, <ul><li>LINK($1, $2)</li></ul>)
 define(LINK_ID, <a href="`#'$1">`#'</a><a id="$1"/>LINK($1, $2))
 
+divert(`0')
 <html>
   <head>
     <title> GCCORE </title>
